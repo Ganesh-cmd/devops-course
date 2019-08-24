@@ -1,0 +1,16 @@
+Disable USB usage
+Depending on how critical your system is, sometimes it’s necessary to disable the USB sticks usage on the Linux host. There are multiple ways to deny the usage of USB storage; here’s a popular one:
+
+Open the “blacklist.conf” file using your favorite text editor:
+
+#nano /etc/modprobe.d/blacklist.conf
+When the file opens, then add the following line at the end of the file (save and close):
+
+blacklist usb_storage
+After this, open the rc.local file:
+
+#nano /etc/rc.local
+Finally, add the following two lines:
+
+modprobe -r usb_storage
+exit 0
